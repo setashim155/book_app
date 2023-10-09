@@ -30,8 +30,9 @@ class _DetailPageState extends State<DetailPage> {
                 children: [
                   Image.asset(
                     book.imgUrl,
+                    width: double.infinity,
                     height: 300,
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   ),
                   AppSizes.gapH20,
                   Padding(
