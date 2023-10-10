@@ -18,16 +18,18 @@ class MyApp extends StatelessWidget {
       designSize: Size(width, height),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp(
-        title: 'Book App',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const HomePage(activeUser: 'John'),
-        // home: const PracticePage(),
-      ),
+      builder: (_, child) {
+        return MaterialApp(
+          title: 'Book App',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
+          ),
+          home: child,
+        );
+      },
+      child: const HomePage(activeUser: 'John'),
     );
   }
 }

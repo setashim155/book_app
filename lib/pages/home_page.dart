@@ -5,6 +5,7 @@ import 'package:book_app/models/book.dart';
 import 'package:book_app/pages/detail_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends StatefulWidget {
   final String activeUser;
@@ -53,26 +54,26 @@ class _HomePageState extends State<HomePage> {
             'assets/images/banner.png',
           ),
           SizedBox(
-            height: 180,
+            height: 180.h,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: books.length,
               itemBuilder: (context, index) => _buildListTile(books[index]),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(16.0),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
             child: Text(
               "You may also like",
               style: TextStyle(
                 color: Colors.black,
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
           ),
           SizedBox(
-            height: 236,
+            height: 236.h,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: books.length,
@@ -93,36 +94,36 @@ class _HomePageState extends State<HomePage> {
         );
       },
       child: Container(
-        padding: const EdgeInsets.all(10),
-        width: 360,
+        padding: EdgeInsets.all(10.w),
+        width: 360.w,
         child: Stack(
           children: [
             Card(
               color: Colors.white,
-              margin: const EdgeInsets.only(left: 8, top: 8, bottom: 8),
+              margin: EdgeInsets.only(left: 8.w, top: 16.h, bottom: 8.h),
               child: Row(
                 children: [
                   const Spacer(),
                   Expanded(
                     flex: 2,
                     child: Padding(
-                      padding: const EdgeInsets.only(right: 10),
+                      padding: EdgeInsets.only(right: 10.w),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
                             book.title,
-                            style: const TextStyle(
-                              fontSize: 13,
+                            style: TextStyle(
+                              fontSize: 13.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Text(
                             book.description,
                             maxLines: 4,
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Colors.black54,
-                              fontSize: 11,
+                              fontSize: 11.sp,
                             ),
                           ),
                           Row(
@@ -130,13 +131,14 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Text(
                                 book.rating,
-                                style: const TextStyle(fontSize: 12),
+                                style: TextStyle(fontSize: 12.sp),
                               ),
                               Text(
                                 book.genre,
-                                style: const TextStyle(
-                                    fontSize: 11,
-                                    color: Color.fromARGB(255, 29, 138, 228)),
+                                style: TextStyle(
+                                    fontSize: 11.sp,
+                                    color: const Color.fromARGB(
+                                        255, 29, 138, 228)),
                               ),
                             ],
                           ),
@@ -148,14 +150,14 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Positioned(
-              left: 20,
-              bottom: 20,
+              left: 20.w,
+              bottom: 20.h,
               child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(4)),
+                borderRadius: BorderRadius.all(Radius.circular(4.r)),
                 child: Image.asset(
                   book.imgUrl,
-                  width: 85,
-                  height: 140,
+                  width: 85.w,
+                  height: 140.h,
                   fit: BoxFit.fitHeight,
                 ),
               ),
@@ -173,17 +175,17 @@ class _HomePageState extends State<HomePage> {
             MaterialPageRoute(builder: (context) => DetailPage(book: book)));
       },
       child: Container(
-        padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
-        width: 134,
+        padding: EdgeInsets.only(left: 20.w, top: 10.h, bottom: 10.h),
+        width: 134.w,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(8)),
+              borderRadius: BorderRadius.all(Radius.circular(8.r)),
               child: Image.asset(
                 book.imgUrl,
-                width: 105,
-                height: 150,
+                width: 105.w,
+                height: 150.h,
                 fit: BoxFit.fitWidth,
               ),
             ),
@@ -191,17 +193,17 @@ class _HomePageState extends State<HomePage> {
             Text(
               book.title,
               maxLines: 2,
-              style: const TextStyle(
-                fontSize: 11,
+              style: TextStyle(
+                fontSize: 11.sp,
                 fontWeight: FontWeight.w600,
                 color: Colors.black87,
               ),
             ),
             Text(
               book.genre,
-              style: const TextStyle(
-                fontSize: 11,
-                color: Color.fromARGB(255, 29, 138, 228),
+              style: TextStyle(
+                fontSize: 11.sp,
+                color: const Color.fromARGB(255, 29, 138, 228),
                 fontWeight: FontWeight.w500,
               ),
             ),
